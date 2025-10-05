@@ -1,0 +1,3 @@
+INSERT INTO patient (FIRST_NAME, LAST_NAME, PHONE_NUMBER, EMAIL, DATE_OF_BIRTH) VALUES ('Alice','Johnson', '532345545', 'alice@example.com', '1996-03-14');
+INSERT INTO patient (FIRST_NAME, LAST_NAME, PHONE_NUMBER, EMAIL, DATE_OF_BIRTH) VALUES ('Michael','Brown', '255666666', 'michael@example.com', '1997-03-14');
+INSERT INTO patient (FIRST_NAME, LAST_NAME, PHONE_NUMBER, EMAIL, DATE_OF_BIRTH) VALUES ('Sophia' 'Lee', 35, '32155566', 'sophia@example.com','1998-03-14');

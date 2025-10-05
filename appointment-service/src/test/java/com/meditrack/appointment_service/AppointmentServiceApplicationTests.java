@@ -1,15 +1,13 @@
-package com.meditrack.patient_service;
+package com.meditrack.appointment_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PatientServiceApplicationTests {
+class AppointmentServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
 	}
-
-
 
 }
