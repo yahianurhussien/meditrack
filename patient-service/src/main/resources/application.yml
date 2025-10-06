@@ -12,3 +12,12 @@ spring:
     hibernate:
       ddl-auto: create-drop
     show-sql: true
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+  packages-to-scan: com.meditrack.patient_service.controller
