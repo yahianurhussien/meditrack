@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -18,5 +19,8 @@ public class Patient {
     private String phoneNumber;
     private String email;
     private LocalDate dateOfBirth;
+    private String checkupNotes;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
 }

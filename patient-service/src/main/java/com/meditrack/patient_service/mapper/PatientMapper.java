@@ -16,6 +16,7 @@ public class PatientMapper {
                 .phoneNumber(patientRequest.phoneNumber())
                 .email(patientRequest.phoneNumber())
                 .dateOfBirth(patientRequest.dateOfBirth())
+                .checkupNotes(patientRequest.checkupNotes())
                 .build();
     }
 
@@ -27,6 +28,7 @@ public class PatientMapper {
                 .phoneNumber(patient.getPhoneNumber())
                 .email(patient.getEmail())
                 .dateOfBirth(patient.getDateOfBirth())
+                .checkupNotes(patient.getCheckupNotes())
                 .build();
     }
 
@@ -39,6 +41,7 @@ public class PatientMapper {
                 .phoneNumber(patientEntity.getPhoneNumber())
                 .email(patientEntity.getEmail())
                 .dateOfBirth(patientEntity.getDateOfBirth())
+                .checkupNotes(patientEntity.getCheckupNotes())
                 .build();
     }
 

@@ -62,6 +62,7 @@ public class PatientService {
         existingEntity.setPhoneNumber(request.phoneNumber());
         existingEntity.setEmail(request.email());
         existingEntity.setDateOfBirth(request.dateOfBirth());
+        existingEntity.setCheckupNotes(request.checkupNotes());
 
         PatientEntity updatedEntity = patientRepository.save(existingEntity);
         Patient patient = PatientMapper.toModel(updatedEntity);
