@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,7 +31,7 @@ public class PatientController{
     )
     @ApiResponse(responseCode = "201", description = "Patient created successfully")
     @PostMapping
-  public ResponseEntity<PatientResponse> createPatient(@RequestBody PatientRequest patientRequest){
+  public ResponseEntity<PatientResponse> createPatient(@Valid @RequestBody PatientRequest patientRequest){
       PatientResponse response = patientService.createPatient(patientRequest);
       return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
@@ -89,7 +90,7 @@ public class PatientController{
   public ResponseEntity<PatientResponse> updatePatient(
             @Parameter(description = "Unique Id of the patient", example = "12")
             @PathVariable("id") Long id,
-            @RequestBody PatientRequest patientRequest){
+            @Valid @RequestBody PatientRequest patientRequest){
       PatientResponse updatedPatient =  patientService.updatePatient(id, patientRequest);
       return ResponseEntity.ok(updatedPatient);
   }
