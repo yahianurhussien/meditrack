@@ -16,6 +16,7 @@
 
     <modules>
          <module>patient-service</module>
+         <module>doctor-service</module>
          <module>appointment-service</module>
          <module>notification-service</module>
 <!--        &lt;!&ndash; add more modules later &ndash;&gt;-->
