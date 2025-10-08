@@ -47,8 +47,6 @@ public class DoctorEntity {
     @Column(name = "bio", length = 1000)
     private String bio;
 
-    @Column(name = "is_available", nullable = false)
-    private Boolean isAvailable = true;
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)

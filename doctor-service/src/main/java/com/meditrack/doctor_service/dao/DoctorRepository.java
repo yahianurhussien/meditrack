@@ -10,14 +10,4 @@ import java.util.Optional;
 
 @Repository
 public interface DoctorRepository extends JpaRepository<DoctorEntity, Long> {
-
-    Optional<Doctor> findByEmail(String email);
-
-    List<Doctor> findBySpecialization(String specialization);
-
-    List<Doctor> findByIsAvailableTrue();
-
-    List<Doctor> findBySpecializationAndIsAvailableTrue(String specialization);
-
-    boolean existsByEmail(String email);
 }

@@ -6,8 +6,7 @@ public record DoctorResponse(
         String phoneNumber,
         String email,
         String specialization,
-        Integer yearsOfExperience,
-        Boolean isAvailable
+        Integer yearsOfExperience
 
 
 

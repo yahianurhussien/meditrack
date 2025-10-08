@@ -20,7 +20,6 @@ public class DoctorMapper {
                 .specialization(doctorRequest.specialization())
                 .consultationFee(doctorRequest.consultationFee())
                 .yearsOfExperience(doctorRequest.yearsOfExperience())
-                .isAvailable(doctorRequest.isAvailable())
                 .bio(doctorRequest.bio())
                 .build();
     }
@@ -37,7 +36,6 @@ public class DoctorMapper {
                 .specialization(doctor.getSpecialization())
                 .consultationFee(doctor.getConsultationFee())
                 .yearsOfExperience(doctor.getYearsOfExperience())
-                .isAvailable(doctor.getIsAvailable())
                 .bio(doctor.getBio())
                 .build();
     }
@@ -55,7 +53,6 @@ public class DoctorMapper {
                 .specialization(doctorEntity.getSpecialization())
                 .consultationFee(doctorEntity.getConsultationFee())
                 .yearsOfExperience(doctorEntity.getYearsOfExperience())
-                .isAvailable(doctorEntity.getIsAvailable())
                 .bio(doctorEntity.getBio())
                 .build();
     }
@@ -68,8 +65,7 @@ public class DoctorMapper {
                 doctor.getPhoneNumber(),
                 doctor.getEmail(),
                 doctor.getSpecialization(),
-                doctor.getYearsOfExperience(),
-                doctor.getIsAvailable()
+                doctor.getYearsOfExperience()
         );
     }
 }

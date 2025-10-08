@@ -35,7 +35,6 @@ public class DataLoader implements CommandLineRunner {
                         1,
                         BigDecimal.ONE,
                         "giejrnot",
-                        false,
                         LocalDateTime.now(),
                         LocalDateTime.now()
                 ),
@@ -43,14 +42,12 @@ public class DataLoader implements CommandLineRunner {
                         "ttee",
                         1,
                         BigDecimal.ONE,
-                        "giejrnot",
-                        false, LocalDateTime.now(),LocalDateTime.now()),
+                        "giejrnot", LocalDateTime.now(),LocalDateTime.now()),
                 new DoctorEntity(null, "Sophia", "Lee", "123456456", "sophia@example.com",LocalDate.of(1993,3,23),"staz",
                         "ttee",
                         1,
                         BigDecimal.ONE,
-                        "giejrnot",
-                        false, LocalDateTime.now(),LocalDateTime.now())
+                        "giejrnot", LocalDateTime.now(),LocalDateTime.now())
         ));
         System.out.println("✅ Dummy patient data loaded successfully!");
     }
