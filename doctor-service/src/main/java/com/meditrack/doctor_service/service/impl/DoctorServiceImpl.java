@@ -16,7 +16,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-public class DoctorService {
+public class DoctorServiceImpl{
     @Autowired
     private DoctorRepository doctorRepository;
 
