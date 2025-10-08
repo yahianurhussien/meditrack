@@ -20,4 +20,4 @@ springdoc:
   swagger-ui:
     enabled: true
     path: /swagger-ui.html
-  packages-to-scan: com.meditrack.patient_service.controller
+  packages-to-scan: com.meditrack.doctor_service.controller

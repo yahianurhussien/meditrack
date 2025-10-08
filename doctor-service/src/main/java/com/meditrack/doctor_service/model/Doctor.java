@@ -27,6 +27,7 @@ public class Doctor {
     private String qualifications;
     private Integer yearsOfExperience;
     private BigDecimal consultationFee;
+    private Boolean isAvailable;
     private String bio;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

@@ -29,6 +29,7 @@ public record DoctorRequest(
        @NotNull(message = "Consultation fee is required")
        @DecimalMin(value = "0.0", inclusive = false, message = "Consultation fee must be greater than 0")
        BigDecimal consultationFee,
+       Boolean isAvailable,
        String bio
 
 ){}

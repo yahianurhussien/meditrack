@@ -1,12 +1,11 @@
 package com.meditrack.doctor_service.dto;
 
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 
-public record CreateAvailabilitySlotRequest (
+public record DoctorAvailabilityRequest(
         @NotNull(message = "Doctor ID is required")
         Long doctorId,
 
@@ -19,5 +18,7 @@ public record CreateAvailabilitySlotRequest (
        @NotNull(message = "End time is required")
         LocalTime endTime,
 
-        Boolean isRecurring
+        Boolean isAvailable
+
+
 ){}
