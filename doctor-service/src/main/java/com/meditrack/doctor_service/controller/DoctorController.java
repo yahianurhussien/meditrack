@@ -86,7 +86,7 @@ public class DoctorController{
             @ApiResponse(responseCode = "404", description = "doctor not found")
     })
   @PutMapping("/{id}")
-  public ResponseEntity<DoctorResponse> updatedoctor(
+  public ResponseEntity<DoctorResponse> updateDoctor(
             @Parameter(description = "Unique Id of the doctor", example = "12")
             @PathVariable("id") Long id,
             @Valid @RequestBody DoctorRequest doctorRequest){
