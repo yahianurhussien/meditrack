@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +30,7 @@ public class AppointmentController {
     )
     @ApiResponse(responseCode = "201", description = "appointment created successfully")
     @PostMapping
-    public ResponseEntity<AppointmentResponse> create(@RequestBody AppointmentRequest request) {
+    public ResponseEntity<AppointmentResponse> create(@Valid @RequestBody AppointmentRequest request) {
         return ResponseEntity.ok(appointmentService.createAppointment(request));
     }
 
