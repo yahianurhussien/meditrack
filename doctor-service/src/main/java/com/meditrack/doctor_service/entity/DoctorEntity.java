@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Builder
 @Setter
@@ -47,6 +48,8 @@ public class DoctorEntity {
     @Column(name = "bio", length = 1000)
     private String bio;
 
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<DoctorAvailabilityEntity> availabilities;
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)

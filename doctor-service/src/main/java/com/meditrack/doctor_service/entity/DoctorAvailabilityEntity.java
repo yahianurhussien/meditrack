@@ -18,8 +18,6 @@ public class DoctorAvailabilityEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Long doctorId;
-
     @Enumerated(EnumType.STRING)
     private DayOfWeek dayOfWeek;
 
@@ -27,4 +25,8 @@ public class DoctorAvailabilityEntity {
     private LocalTime endTime;
 
     private boolean isAvailable; // false for holidays, time off, etc.
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "doctor_id", nullable = false)
+    private DoctorEntity doctor;
 }

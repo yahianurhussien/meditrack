@@ -22,7 +22,7 @@ public class DoctorAvailabilityController {
     }
 
     @GetMapping("/{doctorId}")
-    public ResponseEntity<List<DoctorAvailabilityResponse>> getAvailability(@PathVariable Long doctorId) {
+    public ResponseEntity<List<DoctorAvailabilityResponse>> getAvailability(@PathVariable("doctorId") Long doctorId) {
         return ResponseEntity.ok(doctorAvailabilityService.getAvailabilityByDoctor(doctorId));
     }
 }

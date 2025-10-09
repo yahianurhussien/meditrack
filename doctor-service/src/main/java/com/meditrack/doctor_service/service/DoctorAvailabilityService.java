@@ -2,10 +2,16 @@ package com.meditrack.doctor_service.service;
 
 
 import com.meditrack.doctor_service.dao.DoctorAvailabilityRepository;
+import com.meditrack.doctor_service.dao.DoctorRepository;
 import com.meditrack.doctor_service.dto.DoctorAvailabilityRequest;
 import com.meditrack.doctor_service.dto.DoctorAvailabilityResponse;
 import com.meditrack.doctor_service.entity.DoctorAvailabilityEntity;
+import com.meditrack.doctor_service.entity.DoctorEntity;
+import com.meditrack.doctor_service.exception.DoctorNotFoundException;
+import com.meditrack.doctor_service.mapper.AvailabilityMapper;
+import com.meditrack.doctor_service.mapper.DoctorMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -14,33 +20,35 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class DoctorAvailabilityService {
-
+    @Autowired
     private final DoctorAvailabilityRepository doctorAvailabilityRepository;
+    private final DoctorRepository doctorRepository;
 
     public DoctorAvailabilityResponse addAvailability(DoctorAvailabilityRequest request) {
+
+        DoctorEntity doctorEntity = doctorRepository.findById(request.doctorId())
+                .orElseThrow(()->new DoctorNotFoundException(request.doctorId()));
+
         DoctorAvailabilityEntity entity = DoctorAvailabilityEntity.builder()
-                .doctorId(request.doctorId())
+                .doctor(doctorEntity)
                 .dayOfWeek(request.dayOfWeek())
                 .startTime(request.startTime())
                 .endTime(request.endTime())
                 .isAvailable(request.isAvailable())
                 .build();
-        doctorAvailabilityRepository.save(entity);
-        return new DoctorAvailabilityResponse(
-                entity.getId(), entity.getDoctorId(),
-                entity.getDayOfWeek(), entity.getStartTime(), entity.getEndTime(), entity.isAvailable()
-        );
+        DoctorAvailabilityEntity savedAvailability = doctorAvailabilityRepository.save(entity);
+        return AvailabilityMapper.toResponse(AvailabilityMapper.toModel(savedAvailability));
     }
 
     public List<DoctorAvailabilityResponse> getAvailabilityByDoctor(Long doctorId) {
-        return doctorAvailabilityRepository.findByDoctorId(doctorId).stream()
-                .map(e -> new DoctorAvailabilityResponse(e.getId(), e.getDoctorId(), e.getDayOfWeek(),
-                        e.getStartTime(), e.getEndTime(), e.isAvailable()))
-                .toList();
+        return doctorAvailabilityRepository.findByDoctor_Id(doctorId).stream()
+                .map(AvailabilityMapper::toModel)
+                .map(AvailabilityMapper::toResponse).toList();
+
     }
 
     public boolean isDoctorAvailable(Long doctorId, LocalDateTime appointmentTime) {
-        return doctorAvailabilityRepository.findByDoctorIdAndDayOfWeek(doctorId, appointmentTime.getDayOfWeek())
+        return doctorAvailabilityRepository.findByDoctor_IdAndDayOfWeek(doctorId, appointmentTime.getDayOfWeek())
                 .filter(DoctorAvailabilityEntity::isAvailable)
                 .filter(a -> !appointmentTime.toLocalTime().isBefore(a.getStartTime()) &&
                         !appointmentTime.toLocalTime().isAfter(a.getEndTime()))

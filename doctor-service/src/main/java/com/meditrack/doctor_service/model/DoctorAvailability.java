@@ -9,12 +9,11 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AvailabilitySlot {
+public class DoctorAvailability {
     private Long id;
-    private Long doctorId;
     private DayOfWeek dayOfWeek;
     private LocalTime startTime;
     private LocalTime endTime;
-    private Boolean isRecurring;
-    private Boolean isActive;
+    private boolean isAvailable; // false for holidays, time off, etc.
+    private Doctor doctor;
 }
